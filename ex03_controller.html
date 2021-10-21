@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='app'>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
+        <script type="text/javascript">
+            // nome da aplicação e um array com todas as dependencias necessarias
+            angular.module('app', [])
+
+            //Controller
+            angular.module('app').controller('MeuController', [
+                '$scope', //Injeção de dependencia: Intermediario entre a view (DOM) e o seu controller
+                function($scope) {
+                    $scope.value = 10
+                    $scope.inc = function() {
+                        $scope.value++
+                    }
+                }
+            ])
+        </script>
+        <title>Fundamentos de Angular</title>
+    </head>
+    <body>
+        <div ng-controller="MeuController">
+            <h1>{{ value }}</h1>
+            <input type="text" ng-model="value">
+            <button ng-click="inc()">Inc</button>
+        </div>
+    </body>
+</html>
